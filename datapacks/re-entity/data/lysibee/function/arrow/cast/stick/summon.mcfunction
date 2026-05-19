@@ -1,0 +1,1 @@
+execute at @s positioned ~ ~3 ~ run summon ominous_item_spawner ~ ~ ~ {spawn_item_after_ticks:3,item:{id:"minecraft:arrow",count:30}}
