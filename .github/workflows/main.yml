@@ -14,13 +14,13 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Sync Files to Pterodactyl
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
+      - name: Fast Sync Changed Files
+        uses: Burnett01/rsync-deployments@v7
         with:
-          username: ${{ secrets.SFTP_USERNAME }}
-          server: ${{ secrets.SFTP_HOST }}
-          port: ${{ secrets.SFTP_PORT }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          sftp_only: true
-          local_path: './*' # Upload everything in your repo folder
-          remote_path: '/world/' # Target folder on the server
+          switches: -avzr --delete
+          path: './'
+          remote_path: '/world/'
+          remote_host: ${{ secrets.SFTP_HOST }}
+          remote_port: ${{ secrets.SFTP_PORT }}
+          remote_user: ${{ secrets.SFTP_USERNAME }}
+          remote_key: ${{ secrets.SFTP_PASSWORD }}
