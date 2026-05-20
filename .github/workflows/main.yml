@@ -1,39 +1,26 @@
-name: Deploy Files
+name: Push Datapack to Server
 
 on:
   push:
     branches:
-      - main     # ⚠️ Make sure your branch is named 'main' or 'master'. Modern GitHub uses 'main'.
-  workflow_dispatch:
-    inputs:
-      sync:
-        description: "File synchronization"
-        required: true
-        default: "delta"
+      - main  # This means the robot only triggers when you push to the main branch
 
 jobs:
-  deploy-datapack:
-    name: "Sync to Pterodactyl"
+  deploy:
+    name: SFTP Sync
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-      - name: "Checkout"
-        uses: actions/checkout@v4 # Cleaned up to the stable v4 version
-        with:
-          fetch-depth: 0
 
-      - name: "Deploy via SFTP"
-        uses: milanmk/actions-file-deployer@master
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Sync Files to Pterodactyl
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
-          remote-protocol: "sftp"
-          # These tags pull safely from the GitHub Secrets tab we filled out earlier
-          remote-host: ${{ secrets.SFTP_HOST }}
-          remote-port: ${{ secrets.SFTP_PORT }}
-          remote-user: ${{ secrets.SFTP_USERNAME }}
-          remote-password: ${{ secrets.SFTP_PASSWORD }} 
-          
-          local-path: "./*"
-          remote-path: "/world/" # Your Pterodactyl target folder
-          
-          # This connects the manual button option to the deploy script
-          sync: ${{ github.event.inputs.sync || 'delta' }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          server: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          sftp_only: true
+          local_path: './*' # Upload everything in your repo folder
+          remote_path: '/world/' # Target folder on the server
