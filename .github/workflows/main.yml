@@ -1,0 +1,26 @@
+name: Push Datapack to Server
+
+on:
+  push:
+    branches:
+      - main  # This means the robot only triggers when you push to the main branch
+
+jobs:
+  deploy:
+    name: SFTP Sync
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Sync Files to Pterodactyl
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
+        with:
+          username: ${{ secrets.SFTP_USERNAME }}
+          server: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          sftp_only: true
+          local_path: './*' # Upload everything in your repo folder
+          remote_path: '/world/' # Target folder on the server
