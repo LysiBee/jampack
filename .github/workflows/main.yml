@@ -14,13 +14,13 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Fast Sync Changed Files
-        uses: Burnett01/rsync-deployments@v8
+      - name: Fast SFTP Sync
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          switches: -avzr --delete
-          path: './'
-          remote_path: '/world/'
-          remote_host: ${{ secrets.SFTP_HOST }}
-          remote_port: ${{ secrets.SFTP_PORT }}
-          remote_user: ${{ secrets.SFTP_USERNAME }}
-          remote_key: ${{ secrets.SFTP_PASSWORD }}
+          server: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          local-dir: './'
+          server-dir: '/world/'
+          protocol: sftp
