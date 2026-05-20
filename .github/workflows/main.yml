@@ -1,26 +1,33 @@
-name: Push Datapack to Server
+name: Fast Datapack Push
 
 on:
   push:
     branches:
-      - main  # This means the robot only triggers when you push to the main branch
+      - main
 
 jobs:
   deploy:
-    name: SFTP Sync
+    name: SFTP Delta Sync
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Faster code download (fetch-depth: 0 is required for delta sync to see changes)
       - name: Checkout Code
         uses: actions/checkout@v4
-
-      - name: Sync Files to Pterodactyl
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
-          username: ${{ secrets.SFTP_USERNAME }}
-          server: ${{ secrets.SFTP_HOST }}
-          port: ${{ secrets.SFTP_PORT }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          sftp_only: true
-          local_path: './*' # Upload everything in your repo folder
-          remote_path: '/world/' # Target folder on the server
+          fetch-depth: 0
+
+      # 2. Native, parallel, delta-only file transfer
+      - name: Sync Changed Files Only
+        uses: milanmk/ftp-sftp-file-deployer@v1.18
+        with:
+          remote-protocol: sftp
+          remote-host: ${{ secrets.SFTP_HOST }}
+          remote-port: ${{ secrets.SFTP_PORT }}
+          remote-user: ${{ secrets.SFTP_USERNAME }}
+          remote-password: ${{ secrets.SFTP_PASSWORD }}
+          local-path: './*'
+          remote-path: '/world/'
+          
+          # Only transfer files that changed since your last commit
+          sync: delta
