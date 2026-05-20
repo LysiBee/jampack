@@ -1,33 +1,39 @@
-name: Fast Datapack Push
+name: Deploy Files
 
 on:
   push:
     branches:
-      - main
+      - main     # ⚠️ Make sure your branch is named 'main' or 'master'. Modern GitHub uses 'main'.
+  workflow_dispatch:
+    inputs:
+      sync:
+        description: "File synchronization"
+        required: true
+        default: "delta"
 
 jobs:
-  deploy:
-    name: SFTP Delta Sync
+  deploy-datapack:
+    name: "Sync to Pterodactyl"
     runs-on: ubuntu-latest
-
+    timeout-minutes: 30
     steps:
-      # 1. Faster code download (fetch-depth: 0 is required for delta sync to see changes)
-      - name: Checkout Code
-        uses: actions/checkout@v4
+      - name: "Checkout"
+        uses: actions/checkout@v4 # Cleaned up to the stable v4 version
         with:
           fetch-depth: 0
 
-      # 2. Native, parallel, delta-only file transfer
-      - name: Sync Changed Files Only
-        uses: milanmk/ftp-sftp-file-deployer@v1.18
+      - name: "Deploy via SFTP"
+        uses: milanmk/actions-file-deployer@master
         with:
-          remote-protocol: sftp
+          remote-protocol: "sftp"
+          # These tags pull safely from the GitHub Secrets tab we filled out earlier
           remote-host: ${{ secrets.SFTP_HOST }}
           remote-port: ${{ secrets.SFTP_PORT }}
           remote-user: ${{ secrets.SFTP_USERNAME }}
-          remote-password: ${{ secrets.SFTP_PASSWORD }}
-          local-path: './*'
-          remote-path: '/world/'
+          remote-password: ${{ secrets.SFTP_PASSWORD }} 
           
-          # Only transfer files that changed since your last commit
-          sync: delta
+          local-path: "./*"
+          remote-path: "/world/" # Your Pterodactyl target folder
+          
+          # This connects the manual button option to the deploy script
+          sync: ${{ github.event.inputs.sync || 'delta' }}
