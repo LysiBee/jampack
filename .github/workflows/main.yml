@@ -1,9 +1,10 @@
+
 name: Push Datapack to Server
 
 on:
   push:
     branches:
-      - main 
+      - main  
 
 jobs:
   deploy:
@@ -13,17 +14,14 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Sync Files to Pterodactyl
-        uses: milanmk/actions-file-deployer@master
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
-          remote-protocol: "sftp"
-          remote-host: ${{ secrets.SFTP_HOST }}
-          remote-port: ${{ secrets.SFTP_PORT }}
-          remote-user: ${{ secrets.SFTP_USERNAME }}
-          remote-password: ${{ secrets.SFTP_PASSWORD }}
-          local-path: "."
-          remote-path: "/world/"
-          sync: "delta"
+          username: ${{ secrets.SFTP_USERNAME }}
+          server: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          sftp_only: true
+          local_path: './*' 
+          remote_path: '/world/' 
