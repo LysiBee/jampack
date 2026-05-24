@@ -13,7 +13,7 @@ scoreboard players set .offercount shop.main 1
 scoreboard players set .corestab game.main 10000
 scoreboard players set .moneycount game.main 5000
 scoreboard players set .orbcount game.main 0
-
+# state 0 = hub, 1 = shopping, 2 = waiting players, 3 = in round, 4 = find escape, 5 = end round, 6 = lost
 scoreboard players set .gamestate game.main 0
 scoreboard players set .roundcount game.main 0
 
