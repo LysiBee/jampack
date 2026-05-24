@@ -1,0 +1,1 @@
+execute if score .roundcount game.main matches 1.. run scoreboard players set .entityoffer shop.main 2
