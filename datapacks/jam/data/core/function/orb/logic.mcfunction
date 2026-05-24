@@ -1,0 +1,1 @@
+scoreboard players add .orbcount game.main 1
