@@ -13,7 +13,14 @@ scoreboard objectives add timer dummy
 scoreboard players set $time timer 0
 scoreboard players set $tick timer 0
 
+
+
+
+
 scoreboard objectives add game.main dummy
+
+scoreboard players set $state game.main 0
+
 scoreboard objectives add shop.main dummy
 scoreboard objectives add player.state dummy
 # shop.main
