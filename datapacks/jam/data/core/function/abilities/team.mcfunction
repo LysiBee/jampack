@@ -17,3 +17,4 @@ give @a[team=survivor] goat_horn[custom_name=[{"text":"Speed","italic":false}],c
 give @a[team=killer] goat_horn[custom_name=[{"text":"Blindness","italic":false}],custom_data={skill:"blindness"}]
 give @a[team=killer] goat_horn[custom_name=[{"text":"Strength","italic":false}],custom_data={skill:"strength"}]
 
+gamemode adventure @a
