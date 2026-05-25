@@ -7,7 +7,7 @@ execute as @a[scores={jump=2..}] run execute as @a at @s if predicate {condition
 
 
 
-execute as @a[scores={jump=2..}] run execute as @a[scores={dj=2..}] at @s if predicate {condition:"minecraft:entity_properties",entity:"this",predicate:{type_specific:{type:"minecraft:player",input:{jump:1b}}}} run summon wind_charge ~ ~0.5 ~ {Motion:[0.0,-0.1,0.0]}
+execute as @a[scores={jump=2..}] run execute as @a[scores={dj=2..}] at @s if predicate {condition:"minecraft:entity_properties",entity:"this",predicate:{type_specific:{type:"minecraft:player",input:{jump:1b}}}} run summon wind_charge ~ ~0.1 ~ {Motion:[0.0,-0.1,0.0]}
 
 
 
