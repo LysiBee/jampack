@@ -8,4 +8,5 @@ execute as @a[scores={dj=2..}] at @s if predicate {condition:"minecraft:entity_p
 
 
 
+
 execute as @a if score @s dj matches 0 run effect clear @s levitation
