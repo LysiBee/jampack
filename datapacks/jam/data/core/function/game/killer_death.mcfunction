@@ -9,3 +9,5 @@ gamemode spectator @s
 tag @s remove alive
 
 scoreboard players set @s deaths 0
+
+team leave @a

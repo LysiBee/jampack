@@ -16,3 +16,5 @@ gamemode survival @a[team=killer]
 # optional reset timer
 scoreboard players set $time timer 0
 scoreboard players set $tick timer 0
+
+team leave @a
