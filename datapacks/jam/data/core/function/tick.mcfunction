@@ -5,4 +5,9 @@ execute as @e[type=item,tag=core.orb] at @s if entity @p[distance=..1,tag=inloc]
 # summon particle on every marker to see where they are
 execute as @e[type=marker] at @s run particle minecraft:end_rod ~ ~ ~ 0 0 0 0 0
 function core:abilities/abilityuse
+function core:abilities/team
 
+execute unless entity @a[team=killer] run team add killer
+execute unless entity @a[team=survivor] run team add survivor
+team modify killer color red
+team modify survivor color green
