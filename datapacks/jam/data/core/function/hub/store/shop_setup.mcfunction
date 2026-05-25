@@ -21,6 +21,7 @@ summon interaction 66 -59 11 {width:1.1f,height:1.1f,response:1b,Tags:["item1"]}
 summon interaction 66 -59 13 {width:1.1f,height:1.1f,response:1b,Tags:["item2"]}
 #
 execute if score .roundcount game.main matches 1.. run scoreboard players set .entityoffer shop.main 2
+execute if score .roundcount game.main matches 0 run return run scoreboard players set .entityoffer shop.main 1
 scoreboard players add .offercount shop.main 2
 scoreboard players operation .buffoffer shop.main = .offercount shop.main
 scoreboard players operation .buffoffer shop.main -= .entityoffer shop.main
