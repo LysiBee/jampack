@@ -11,3 +11,8 @@ execute unless entity @a[team=killer] run team add killer
 execute unless entity @a[team=survivor] run team add survivor
 team modify killer color red
 team modify survivor color green
+
+
+execute as @a[team=survivor,scores={deaths=1..}] run function core:game/survivor_death
+
+execute as @a[team=killer,scores={deaths=1..}] run function core:game/killer_death

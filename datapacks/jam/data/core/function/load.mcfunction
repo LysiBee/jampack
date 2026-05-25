@@ -7,6 +7,8 @@ scoreboard players set @a jump 0
 scoreboard objectives add dj dummy
 scoreboard players set @a dj 0
 
+scoreboard objectives add deaths deathCount
+
 
 
 scoreboard objectives add game.main dummy
