@@ -6,4 +6,3 @@ execute as @e[type=item,tag=core.orb] at @s if entity @p[distance=..1,tag=inloc]
 execute as @e[type=marker] at @s run particle minecraft:end_rod ~ ~ ~ 0 0 0 0 0
 function core:abilities/abilityuse
 
-say working
