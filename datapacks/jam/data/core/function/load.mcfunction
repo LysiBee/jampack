@@ -16,6 +16,8 @@ scoreboard objectives add player.state dummy
 # 66 -59 11 item 2
 scoreboard players set .shopstate shop.main 0
 scoreboard players set .offercount shop.main 1
+scoreboard players set .buffoffer shop.main 1
+scoreboard players set .entityoffer shop.main 1
 # game.main
 #scoreboard players set .corestab game.main 10000
 scoreboard players set .moneycount game.main 5000
