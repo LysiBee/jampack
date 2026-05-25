@@ -1,7 +1,5 @@
-team add killer
-team add survivor
-team modify killer color red
-team modify survivor color lime
+
+
 scoreboard objectives add skill_use minecraft.used:minecraft.goat_horn
 scoreboard players set @a skill_use 0
 scoreboard objectives add jump minecraft.custom:minecraft.jump
