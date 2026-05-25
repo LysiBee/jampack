@@ -13,5 +13,6 @@ execute if score .shopstate shop.main matches 1 run scoreboard players set .shop
 execute if score .offercount shop.main matches 1 if score .roundcount game.main matches 0 run return run function core:hub/store/entity_offer
 #
 #
+execute if score .entityoffer shop.main matches 0 run return run function core:hub/store/check_money
 execute if score .entityoffer shop.main matches 1.. run return run function core:hub/store/entity_offer
-execute if score .buffoffer shop.main matches 1.. run return run function core:hub/store/buff_offer
+# execute if score .buffoffer shop.main matches 1.. run return run function core:hub/store/buff_offer

@@ -1,6 +1,7 @@
 # 66 -59 13 item 1
 # 66 -59 11 item 2
 # summon markers with differens shop item tag at thoes coords
+scoreboard players set .shopstate shop.main 1
 kill @e[type=marker,tag=item1]
 kill @e[type=marker,tag=item2]
 
@@ -20,3 +21,6 @@ summon interaction 66 -59 11 {width:1.1f,height:1.1f,response:1b,Tags:["item1"]}
 summon interaction 66 -59 13 {width:1.1f,height:1.1f,response:1b,Tags:["item2"]}
 #
 execute if score .roundcount game.main matches 1.. run scoreboard players set .entityoffer shop.main 2
+scoreboard players add .offercount shop.main 2
+scoreboard players operation .buffoffer shop.main = .offercount shop.main
+scoreboard players operation .buffoffer shop.main -= .entityoffer shop.main
