@@ -4,3 +4,4 @@ execute as @e[type=item,tag=core.orb] at @s if entity @p[distance=..1,tag=inloc]
 # DEBUG
 # summon particle on every marker to see where they are
 execute as @e[type=marker] at @s run particle minecraft:end_rod ~ ~ ~ 0 0 0 0 0
+function core:abilities/abilityuse

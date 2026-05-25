@@ -1,6 +1,9 @@
 #
 #
 #
+scoreboard objectives add skill_use minecraft.used:minecraft.goat_horn
+scoreboard players set @a skill_use 0
+
 scoreboard objectives add game.main dummy
 scoreboard objectives add shop.main dummy
 scoreboard objectives add player.state dummy
