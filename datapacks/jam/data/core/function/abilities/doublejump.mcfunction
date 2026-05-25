@@ -1,4 +1,4 @@
-execute as @a[scores={dj=1..}] at @s if predicate {condition:"minecraft:entity_properties",entity:"this",predicate:{type_specific:{type:"minecraft:player",input:{jump:1b}}}} run scoreboard players add @s dj 1
+execute as @a at @s if predicate {condition:"minecraft:entity_properties",entity:"this",predicate:{type_specific:{type:"minecraft:player",input:{jump:1b}}}} run scoreboard players add @s dj 1
 
 
 
