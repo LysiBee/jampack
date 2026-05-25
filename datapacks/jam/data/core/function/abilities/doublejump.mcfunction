@@ -2,4 +2,4 @@ execute as @a[scores={jump=..2}] at @s if predicate {condition:"minecraft:entity
 
 
 execute as @a if score @s jump matches 2.. run scoreboard players set @s jump 0
-execute as @a if score @s jump matches ..2 run effect clear @s levitation
+execute as @a if score @s jump matches 2.. run effect clear @s levitation
