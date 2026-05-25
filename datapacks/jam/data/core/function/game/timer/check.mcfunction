@@ -1,1 +1,1 @@
-execute if score $state game.main matches 1 if score $time timer matches 300.. run function game:survivors_win
+execute if score $state game.main matches 1 if score $time timer matches 3.. run function game:survivors_win
