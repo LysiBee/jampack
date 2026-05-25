@@ -6,6 +6,9 @@ kill @e[type=marker,tag=item2]
 
 kill @e[type=minecraft:text_display,tag=item1]
 kill @e[type=minecraft:text_display,tag=item2]
+
+kill @e[type=interaction,tag=item1]
+kill @e[type=interaction,tag=item2]
 # marker
 summon marker 66 -59 11 {Silent:1b,Rotation:[-90F,0F],Tags:["item1"]}
 summon marker 66 -59 13 {Silent:1b,Rotation:[-90F,0F],Tags:["item2"]}
