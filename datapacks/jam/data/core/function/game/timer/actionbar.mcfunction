@@ -1,1 +1,1 @@
-execute if entity @a[team=survivor,gamemode=!spectator] run title @a actionbar [{"text":"Time: ","color":"yellow"},{"score":{"name":"$time","objective":"timer"}},{"text":"s","color":"gray"}]
+execute if entity @a[team=survivor] run title @a actionbar [{"text":"Time: ","color":"yellow"},{"score":{"name":"$time","objective":"timer"}},{"text":"s","color":"gray"}]
