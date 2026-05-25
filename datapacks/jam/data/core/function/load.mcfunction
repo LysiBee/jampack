@@ -1,7 +1,7 @@
 #
 #
 #
-scoreboard objectives add skill_use minecraft.used:minecraft.carrot_on_a_stick
+scoreboard objectives add skill_use minecraft.used:minecraft.goat_horn
 scoreboard players set @a skill_use 0
 
 scoreboard objectives add game.main dummy
