@@ -1,0 +1,4 @@
+execute as @a[scores={skill_use=1..}] at @s if items entity @s weapon.mainhand carrot_on_a_stick[minecraft:custom_data~{skill:"dash"}] run effect give @s speed 1 5
+
+
+execute as @a if score @s skill_use matches 1.. run scoreboard players set @s skill_use 0
