@@ -1,0 +1,1 @@
+execute if score $time timer matches 300 if score $time timer matches ..300 run function game:survivors_win

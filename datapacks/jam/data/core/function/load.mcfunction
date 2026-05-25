@@ -9,6 +9,10 @@ scoreboard players set @a dj 0
 
 scoreboard objectives add deaths deathCount
 
+scoreboard objectives add timer dummy
+scoreboard players set $tick timer 0
+scoreboard players set $time timer 0
+
 
 
 scoreboard objectives add game.main dummy
