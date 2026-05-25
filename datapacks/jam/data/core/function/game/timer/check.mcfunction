@@ -1,1 +1,1 @@
-execute if score $time timer matches 30 if score $time timer matches ..30 run function core:game/survivors_win
+execute if score $time timer matches 3000 if score $time timer matches ..3000 run function core:game/survivors_win
