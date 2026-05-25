@@ -1,1 +1,3 @@
-#execute if score .roundcount game.main matches 1.. run scoreboard players set .entityoffer shop.main 2
+#
+execute as @e[type=interaction,tag=item1] if data entity @s {Interaction:{}} run function core:hub/store/used_1
+execute as @e[type=interaction,tag=item2] if data entity @s {Interaction:{}} run function core:hub/store/used_2

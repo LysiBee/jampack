@@ -15,3 +15,5 @@ summon text_display 66 -59 13 {billboard:"vertical",Tags:["item2"],text:[{"sprit
 # interactions
 summon interaction 66 -59 11 {width:1.1f,height:1.1f,response:1b,Tags:["item1"]}
 summon interaction 66 -59 13 {width:1.1f,height:1.1f,response:1b,Tags:["item2"]}
+#
+execute if score .roundcount game.main matches 1.. run scoreboard players set .entityoffer shop.main 2
