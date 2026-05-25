@@ -1,6 +1,7 @@
-#
-#
-#
+team add killer
+team add survivor
+team modify killer color red
+team modify survivor color lime
 scoreboard objectives add skill_use minecraft.used:minecraft.goat_horn
 scoreboard players set @a skill_use 0
 scoreboard objectives add jump minecraft.custom:minecraft.jump
@@ -8,10 +9,7 @@ scoreboard players set @a jump 0
 scoreboard objectives add dj dummy
 scoreboard players set @a dj 0
 
-team add killer
-team add survivor
-team modify killer color red
-team modify survivor color lime
+
 
 scoreboard objectives add game.main dummy
 scoreboard objectives add shop.main dummy
