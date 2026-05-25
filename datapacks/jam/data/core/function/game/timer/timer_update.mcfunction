@@ -1,3 +1,3 @@
 execute if entity @a[team=survivor,gamemode=!spectator] run scoreboard players add $tick timer 1
 
-execute if score $tick timer matches 20.. run function game:timer/second
+execute if score $tick timer matches 20.. run function core:game/timer/second
