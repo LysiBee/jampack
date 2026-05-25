@@ -1,4 +1,4 @@
-execute as @e[type=interaction] run data remove entity @s {Interaction:{}}
+execute as @e[type=interaction] run data remove entity @s interaction
 say used 1
 #
 
